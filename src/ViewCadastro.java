@@ -11,13 +11,14 @@ public class ViewCadastro {
 	}
 	
 	public String mostraMenu() {
-		System.out.println("MENU");
+		System.out.println("**********MENU**********");
 		System.out.println("1 - Inserir");
 		System.out.println("2 - Listar");
 		System.out.println("3 - Alterar");
 		System.out.println("4 - Excluir");
 		System.out.println("5 - Pesquisar");
 		System.out.println("6 - Sair");
+		System.out.println("************************");
 		System.out.println("Opção: ");
 		return teclado.nextLine();
 	}
@@ -94,7 +95,7 @@ public class ViewCadastro {
 		boolean controle = true;
 		for(int pos=0; pos< estoque.size(); pos++) {
 			if(estoque.get(pos).getModelo().equals(modelo)) {
-				System.out.println(estoque.get(pos).toString());
+				System.out.println("Código do veículo: "+ pos + " : " + estoque.get(pos).toString());
 				controle= false;
 			}
 		}

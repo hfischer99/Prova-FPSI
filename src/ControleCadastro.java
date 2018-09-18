@@ -34,6 +34,7 @@ public class ControleCadastro {
 			case "6":
 				System.out.println("Você optou por sair do sistema! Até a próxima...");
 				continuar = false;
+				System.exit(0);
 				break;
 			default:
 				System.out.println("OPÇÃO INVÁLIDA!!!!");
