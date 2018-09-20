@@ -7,13 +7,14 @@ public class ControleCadastro {
 	public ControleCadastro() {
 		viewCadastro = new ViewCadastro();
 		estoque = new ArrayList<>();
+		
 		trataMenu();
 	}
 
 	private void trataMenu() {
 		boolean continuar = true;
 		do {
-			String opc = viewCadastro.mostraMenu();
+			String opc = viewCadastro.mostraMenu(estoque.size());
 			
 			switch(opc) {
 			case "1":
@@ -32,12 +33,10 @@ public class ControleCadastro {
 				viewCadastro.pesquisar(estoque);
 				break;
 			case "6":
-				System.out.println("Você optou por sair do sistema! Até a próxima...");
-				continuar = false;
-				System.exit(0);
+				viewCadastro.sair();
 				break;
 			default:
-				System.out.println("OPÇÃO INVÁLIDA!!!!");
+				viewCadastro.invalido();
 				break;
 			}
 		}while(continuar);

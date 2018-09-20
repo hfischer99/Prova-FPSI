@@ -4,16 +4,18 @@ public class Carro {
 	private String fabricante;
 	private String cor;
 	private String ano;
+	private Float valor;
 	
 	public void carro() {
 		
 	}
 	
-	public void carro(String modelo,String fabricante, String cor, String ano ) {
+	public void carro(String modelo,String fabricante, String cor, String ano, Float valor ) {
 		this.modelo = modelo;
 		this.fabricante = fabricante;
 		this.cor = cor;
 		this.ano = ano;
+		this.valor = valor;
 		
 	}
 
@@ -49,6 +51,14 @@ public class Carro {
 		this.ano = ano;
 	}
 
+	public Float getValor() {
+		return valor;
+	}
+
+	public void setValor(float valor) {
+		this.valor = valor;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -57,6 +67,7 @@ public class Carro {
 		result = prime * result + ((cor == null) ? 0 : cor.hashCode());
 		result = prime * result + ((fabricante == null) ? 0 : fabricante.hashCode());
 		result = prime * result + ((modelo == null) ? 0 : modelo.hashCode());
+		result = prime * result + ((valor == null) ? 0 : valor.hashCode());
 		return result;
 	}
 
@@ -89,12 +100,20 @@ public class Carro {
 				return false;
 		} else if (!modelo.equals(other.modelo))
 			return false;
+		if (valor == null) {
+			if (other.valor != null)
+				return false;
+		} else if (!valor.equals(other.valor))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Carro [modelo= " + modelo + ", fabricante= " + fabricante + ", cor= " + cor + ", ano= " + ano + "]";
+		return "Carro [modelo=" + modelo + ", fabricante=" + fabricante + ", cor=" + cor + ", ano=" + ano + ", valor="
+				+ valor + "]";
 	}
+
+	
 
 }

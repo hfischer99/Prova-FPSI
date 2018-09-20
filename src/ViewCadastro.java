@@ -10,7 +10,7 @@ public class ViewCadastro {
 		teclado = new Scanner(System.in);
 	}
 	
-	public String mostraMenu() {
+	public String mostraMenu(int tamanho) {
 		System.out.println("**********MENU**********");
 		System.out.println("1 - Inserir");
 		System.out.println("2 - Listar");
@@ -18,6 +18,7 @@ public class ViewCadastro {
 		System.out.println("4 - Excluir");
 		System.out.println("5 - Pesquisar");
 		System.out.println("6 - Sair");
+		System.out.println("Quantidade de Carros Cadastrados: " + tamanho);
 		System.out.println("************************");
 		System.out.println("Opção: ");
 		return teclado.nextLine();
@@ -37,6 +38,11 @@ public class ViewCadastro {
 		
 		System.out.println("Ano: ");
 		umCarro.setAno(teclado.nextLine());
+		
+		System.out.println("Valor: ");
+		float x =Float.parseFloat( teclado.nextLine());
+		
+		umCarro.setValor(x);
 		
 		return umCarro;
 		
@@ -81,12 +87,27 @@ public class ViewCadastro {
 		
 		System.out.println("Ano ("+ estoque.get(pos).getAno()+ "): ");
 		estoque.get(pos).setAno(teclado.nextLine());
+		
+		System.out.println("Valor ("+ estoque.get(pos).getValor() + "): ");
+		float x =Float.parseFloat( teclado.nextLine());
+		estoque.get(pos).setValor(x);
 	}
 	
 	public void excluir(List<Carro>estoque) {
 		System.out.println("Digite o código do veículo que deseja excluir: ");
 		int n = Integer.parseInt(teclado.nextLine());
-		estoque.remove(n);
+		System.out.println("REALMENTE DESEJA EXCLUIR?");
+		System.out.println("S ou N ?");
+		String confere = teclado.nextLine();
+		if(confere.equals("s")) {
+			estoque.remove(n);
+			System.out.println("Excluido com Sucesso");
+		}if(confere.equals("n")){
+			
+		}if(!confere.equals("s") & !confere.equals("n")){
+			System.out.println("DIGITE UMA OPÇÃO VÁLIDA!!");
+		}
+		
 	}
 	
 	public void pesquisar(List<Carro>estoque) {
@@ -102,6 +123,16 @@ public class ViewCadastro {
 		if(controle==true) {
 			System.out.println("Modelo não Encontrado!!");
 		}
+	}
+	
+	public void sair() {
+		System.out.println("Você optou por sair do sistema! Até a próxima...");
+		System.exit(0);
+	}
+	
+	public void invalido() {
+		System.out.println("\nOPÇÃO INVÁLIDA!!!!\n");
+		System.out.println("Selecione umas das opções válidas, conforme o MENU\n");
 	}
 
 }
